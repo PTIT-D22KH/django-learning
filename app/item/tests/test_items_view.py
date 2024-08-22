@@ -41,7 +41,7 @@ class ViewTests(TestCase):
         """Test the index view."""
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'Items/index.html')
+        self.assertTemplateUsed(response, 'item/index.html')
         self.assertContains(response, self.category.name)
 
         
