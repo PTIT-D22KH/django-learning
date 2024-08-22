@@ -8,3 +8,18 @@ class Items(models.Model):
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
     category = models.CharField(max_length=100)
+    
+    
+    def get_formatted_data(self):
+        """Convert date to string"""
+        if self.date:
+            return self.date.strftime('%Y/%m/%d')
+        return None
+    
+    
+    def __str__(self):
+        return (str(self.owner) + " " + str(self.get_formatted_data()) + " " + self.description[:50] + " " + self.category)
+    
+    
+    class Meta:
+        ordering = ['-date']
