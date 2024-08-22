@@ -8,8 +8,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.urls import reverse_lazy
 
-from .models import Task
+from core.models import Task
 
 
-class TaskList(ListView):
+class TaskList(LoginRequiredMixin, ListView):
     model = Task
+    context_object_name = 'tasks'
+    template_name = 'user/task_list.html'
