@@ -3,7 +3,7 @@ Tests for models.
 """
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from core.models import Items
+from core.models import Items, Category
 import datetime
 
 
@@ -96,3 +96,24 @@ class ModelTests(TestCase):
         items = Items.objects.all()
         self.assertEqual(items[0], item2)
         self.assertEqual(items[1], item1)
+
+    
+    def test_create_category_with_detail_successful(self):
+        """Test create category object successfully"""
+        name = 'Test Category'
+        
+        category = Category.objects.create(
+            name = name
+        )
+        
+        self.assertEqual(category.name, name)
+        
+    def test_category_to_string(self):
+        """Test to string method of category class."""
+        name = 'Test Category'
+        
+        category = Category.objects.create(
+            name = name
+        )
+        expected_result = name
+        self.assertEqual(str(category), name)
