@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container mt-5 col-md-20">
-  <form action="{% url 'registration' %}" method="post" class="col-6 mx-auto card p-3 shadow-lg"
+  <form action="{% url 'register' %}" method="post" class="col-6 mx-auto card p-3 shadow-lg"
     enctype="multipart/form-data">
     {% csrf_token %}
     <h3>Sign Up</h3>
