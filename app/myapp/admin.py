@@ -9,6 +9,8 @@ class ProductAdmin(admin.ModelAdmin):
 
 class MyModelAdmin(admin.ModelAdmin):
     list_display = ('field1', 'field2', 'field3')
+    
+
 
 admin.site.register(Product,ProductAdmin)
 admin.site.register(MyModel, MyModelAdmin)
